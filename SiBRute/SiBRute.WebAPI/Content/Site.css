@@ -82,18 +82,6 @@ html {
     padding: 10px;
 }
 
-.text-bubble h1 {
-    font-weight: 600;
-    font-size: 28px;
-    padding-bottom: 15px;
-}
-
-.text-bubble p {
-    font-weight: 600;
-    font-size: 20px;
-    padding-bottom: 20px;
-}
-
 .quotes-area {
     background-color: #647e7f;
     padding: 40px 0;
@@ -103,13 +91,11 @@ html {
 .quotes-area h1 {
     margin: 0;
     padding: 0;
-    font-weight: 700;
-    font-size: 30px;
+    font-weight: 700;    
 }
 
 .quotes-area p {
-    padding-top: 10px;
-    font-size: 17px;
+    padding-top: 10px;    
 }
 
 .bottom-images .col-md-4 {
@@ -164,8 +150,7 @@ footer h1 {
 }
 
 .nav-footer a {
-    color: white;
-     
+    color: white;     
     font-family: Georgia, Tahoma, Geneva, Verdana, sans-serif;   
 }
 
@@ -184,15 +169,13 @@ footer h1 {
 .btn-rectangle-flat {
     border-radius: 0;
     border-width: 0px;
-    font-weight: 700;
-    font-size: 20px;
-    background-color: #398f6b;
-    width: 150px;
+    font-weight: 700;    
+    background-color: #398f6b;    
     padding: 10px 0 10px 0;
     color: white;
 }
 
-    /* Fade */
+ /* FADE */
 .hvr-fade {
   display: inline-block;
   vertical-align: middle;
@@ -217,11 +200,13 @@ footer h1 {
 
 
 
-
 /* -RESPONSIVE- */
 
 @media screen and (max-width: 480px) {
     
+    body {       
+        margin-bottom: 85px;
+    }
 
     #nav-logo {
         margin: 4px 0 4px 30px;          
@@ -242,6 +227,12 @@ footer h1 {
         padding-left: 0px;
     }
 
+    footer {       
+        height: 85px;       
+        padding: 10px 0; 
+       
+    }
+
     .nav-footer a {
         font-size: 7px;   
         margin: 0 5px 0 5px;        
@@ -259,10 +250,66 @@ footer h1 {
         padding: 0 0 10px 0;     
     }
 
+    .text-bubble {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bubble-bottom-right {
+        bottom: 0px;
+        right: 0px;
+        padding: 3px;
+    }
+
+    .bubble-top-left {
+        top: 0px;
+        left: 0px;
+        padding: 3px;
+    }
+
+    .text-bubble h1 {
+        font-weight: 500;
+        padding-bottom: 4px;
+        font-size: 15px;
+    }
+
+    .text-bubble p {
+        font-weight: 500;
+        font-size: 10px;
+        padding-bottom: 7px;
+    }
+
+    .btn-rectangle-flat {
+        font-size: 9px;
+        left: 50%;
+        transform: translate(-50%, 10%);
+        position: absolute; 
+        bottom: 5px;
+        width: 90px;
+        padding: 8px 0 8px 0;
+    }
+    .quotes-area {
+        padding: 16px 0;       
+    }
+
+    .quotes-area h1 {
+        font-size: 13px;
+    }
+
+    .quotes-area p {
+        padding-top: 6px;
+        font-size: 7px;
+    }
+
 
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 480px) and (max-width: 992px) {
+     body {       
+        margin-bottom: 95px;
+    }
+
     #nav-logo {
         margin: 4px 0 4px 30px;          
     }
@@ -282,6 +329,12 @@ footer h1 {
         padding-left: 0px;
     }
 
+     footer {       
+        height: 95px;       
+        padding: 10px 0; 
+       
+    }
+
     .nav-footer a {
         font-size: 8px;   
         margin: 0 5px 0 5px;        
@@ -297,6 +350,61 @@ footer h1 {
 
     .nav-footer {        
         padding: 0 0 10px 0;     
+    }
+
+
+
+
+    .text-bubble {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bubble-bottom-right {
+        bottom: 0px;
+        right: 0px;
+        padding: 5px;
+    }
+
+    .bubble-top-left {
+        top: 0px;
+        left: 0px;
+        padding: 5px;
+    }
+
+    .text-bubble h1 {
+        font-weight: 600;
+        padding-bottom: 4px;
+        font-size: 24px;
+    }
+
+    .text-bubble p {
+        font-weight: 600;
+        font-size: 15px;
+        padding-bottom: 7px;
+    }
+
+    .btn-rectangle-flat {
+        font-size: 15px;
+        left: 50%;
+        transform: translate(-50%, 10%);
+        position: absolute; 
+        bottom: 15px;
+        width: 120px;
+        padding: 8px 0 8px 0;
+    }
+    .quotes-area {
+        padding: 20px 0;       
+    }
+
+    .quotes-area h1 {
+        font-size: 16px;
+    }
+
+    .quotes-area p {
+        padding-top: 6px;
+        font-size: 10px;
     }
 }
 
@@ -336,9 +444,54 @@ footer h1 {
     .nav-footer {        
         padding: 0 0 12px 0;     
     }
+
+
+
+    .text-bubble {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bubble-bottom-right {
+        bottom: 0px;
+        right: 0px;
+        padding: 15px;
+    }
+
+    .bubble-top-left {
+        top: 0px;
+        left: 0px;
+        padding: 15px;
+    }
+
+    .text-bubble h1 {
+        font-weight: 600;
+        padding-bottom: 4px;
+        font-size: 32px;
+    }
+
+    .text-bubble p {
+        font-weight: 600;
+        font-size: 23px;
+        padding-bottom: 7px;
+    }
+   
+    .quotes-area {
+        padding: 20px 0;       
+    }
+
+    .quotes-area h1 {
+        font-size: 23px;
+    }
+
+    .quotes-area p {
+        padding-top: 6px;
+        font-size: 14px;
+    }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 992px) {
     #nav-logo {
         margin: 4px 0 4px 0px;          
     }   
@@ -367,6 +520,59 @@ footer h1 {
     .nav-footer {        
         padding: 0 0 12px 0;     
     }
+
+
+
+    .text-bubble {
+        position: absolute;        
+        max-width: 45%;
+        height: auto;
+    }
+    
+
+    .bubble-bottom-right {
+        bottom: 40px;
+        right: 20px;
+        padding: 10px;
+    }
+
+    .bubble-top-left {
+        top: 40px;
+        left: 20px;
+        padding: 10px;
+    }
+
+    .text-bubble h1 {
+        font-weight: 600;
+        padding-bottom: 4px;
+        font-size: 25px;
+    }
+
+    .text-bubble p {
+        font-weight: 600;
+        font-size: 15px;
+        padding-bottom: 17px;
+    }
+
+    .btn-rectangle-flat {        
+        font-size: 15px;       
+        width: 130px;
+        padding: 9px 0 9px 0;        
+        position: relative;
+    }
+   
+    .quotes-area {
+        padding: 30px 0;       
+    }
+
+    .quotes-area h1 {
+        font-size: 27px;
+    }
+
+    .quotes-area p {
+        padding-top: 6px;
+        font-size: 17px;
+    }
 }
 
 @media screen and (min-width: 1200px) {   
@@ -381,5 +587,46 @@ footer h1 {
 
     .nav-footer {        
         padding: 0 0 15px 0;     
+    }
+
+     .bubble-bottom-right {
+        bottom: 70px;
+        right: 40px;
+        padding: 10px;
+    }
+
+    .bubble-top-left {
+        top: 50px;
+        left: 40px;
+        padding: 10px;
+    }
+
+    .text-bubble h1 {       
+        font-size: 28px;
+        padding-bottom: 15px;
+    }
+
+    .text-bubble p {        
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+
+    .btn-rectangle-flat {       
+        font-size: 20px;       
+        width: 150px;
+        padding: 10px 0 10px 0;       
+    }
+   
+    .quotes-area {        
+        padding: 40px 0;        
+    }
+
+    .quotes-area h1 {
+        font-size: 30px;
+    }
+
+    .quotes-area p {
+        padding-top: 10px;
+        font-size: 17px;
     }
 }
