@@ -8,8 +8,53 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <div>
+    <div class="wrapper">
+        <div class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a href="@Url.Action("Index", "Home")">
+                        <div id="nav-logo">
+                            <img src="~/Content/Images/logo.png"/>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("RUTE", "Index", "Home")</li>
+                        <li>@Html.ActionLink("UNOS", "Index", "Home")</li>
+                        <li>@Html.ActionLink("PLANER", "Index", "Home")</li>                        
+                        <li class="li-right">@Html.ActionLink("PRIJAVA", "Index", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         @RenderBody()
+
+       <footer class="text-center">
+           <ul class="nav-footer">
+               <li>@Html.ActionLink("RUTE", "Index", "Home")</li>
+               <li>@Html.ActionLink("UNOS", "Index", "Home")</li>
+               <li>@Html.ActionLink("PLANER", "Index", "Home")</li>
+               <li>@Html.ActionLink("PRIJAVA", "Index", "Home")</li>
+               <li>@Html.ActionLink("O STRANICI", "Index", "Home")</li>
+               <li>@Html.ActionLink("KONTAKT", "Index", "Home")</li>
+           </ul>
+           <h1>Biciklističke rute Slavonije i Baranje</h1>
+           <p>copyright &copy; 2015, Krunoslav Šterle</p>
+       </footer>
+
     </div>
+   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
