@@ -1,7 +1,7 @@
 ﻿body {
     margin: 0;
     padding: 0;
-    margin-bottom: 60px;
+    margin-bottom: 110px;
 }
 
 html {
@@ -14,6 +14,9 @@ html {
     padding: 0;
     position: relative;
 }
+
+
+/* -NAVBAR- */
 
 .navbar {
     background-color: #647e7f;
@@ -51,19 +54,85 @@ html {
     padding-left: 100px;
 }
 
+/* -CONTENT- */
+
+.relative-area img {
+    width: 100%;
+    height: auto;
+    border: solid 1px white;
+}
+
+.text-bubble {
+    position: absolute;
+    background-color: rgba(0,0,0,0.17);
+    color: white;
+    max-width: 45%;
+    height: auto;
+}
+
+.bubble-bottom-right {
+    bottom: 70px;
+    right: 40px;
+    padding: 10px;
+}
+
+.bubble-top-left {
+    top: 50px;
+    left: 40px;
+    padding: 10px;
+}
+
+.text-bubble h1 {
+    font-weight: 600;
+    font-size: 28px;
+    padding-bottom: 15px;
+}
+
+.text-bubble p {
+    font-weight: 600;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.quotes-area {
+    background-color: #647e7f;
+    padding: 40px 0;
+    color: white;
+}
+
+.quotes-area h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.quotes-area p {
+    padding-top: 10px;
+    font-size: 17px;
+}
+
+.bottom-images .col-md-4 {
+    padding: 0;
+    margin: 0;
+}
+
+.bottom-images img {
+    width: 100%;
+    height: auto;
+    border: solid 1px white;
+    border-right-width: 1px;
+    border-left-width: 0px;
+}
 
 
 
-
-
-
-
-
-
+/* -FOOTER- */
 
 footer {
     position: absolute;
     bottom: 0;
+    height: 110px;
     width: 100%;    
     padding: 15px 0; 
     background-color: #647e7f;
@@ -99,6 +168,54 @@ footer h1 {
      
     font-family: Georgia, Tahoma, Geneva, Verdana, sans-serif;   
 }
+
+
+
+/* -GENERAL- */
+
+.relative-area {
+    position: relative;
+}
+
+.absolute-area {
+    position: absolute;
+}
+
+.btn-rectangle-flat {
+    border-radius: 0;
+    border-width: 0px;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: #398f6b;
+    width: 150px;
+    padding: 10px 0 10px 0;
+    color: white;
+}
+
+    /* Fade */
+.hvr-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  border-color: transparent;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property:  border-color, color, background-color,;
+  transition-property:  border-color, color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: #e3a36a;
+  border-color: black;
+  color: white;
+}
+
+
 
 
 /* -RESPONSIVE- */

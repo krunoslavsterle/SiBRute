@@ -132,6 +132,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\index1.jpg" />
+    <Content Include="Content\Images\index2.jpg" />
+    <Content Include="Content\Images\index3.jpg" />
+    <Content Include="Content\Images\index4.jpg" />
+    <Content Include="Content\Images\index5.jpg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\Site.css" />
