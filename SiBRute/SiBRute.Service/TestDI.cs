@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SiBRute.Service
 {
+    // TODO: DELETE THIS, USED FOR TESTING OF THE DI
     public class TestDI : ITestDI
     {
         public string GetData()

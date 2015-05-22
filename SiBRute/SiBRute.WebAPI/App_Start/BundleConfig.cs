@@ -8,10 +8,12 @@ namespace SiBRute.WebAPI.App_Start
 {
     public class BundleConfig
     {
+        #region Methods
+
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap.css", 
+                "~/Content/bootstrap.css",
                 "~/Content/normalize.css",
                 "~/Content/Site.css"));
 
@@ -22,5 +24,8 @@ namespace SiBRute.WebAPI.App_Start
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
         }
+
+        #endregion Methods
+        
     }
 }

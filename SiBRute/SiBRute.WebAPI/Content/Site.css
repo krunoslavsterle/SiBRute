@@ -156,6 +156,28 @@ footer h1 {
 
 
 
+
+/* -ROUTES LIST - */
+
+.routes-list-header {
+    margin-top: 30px;
+    
+}
+
+.routes-list-header h4 {
+    font-size: 15px;
+}
+
+.routes-list-items .col-md-1, 
+.routes-list-items .col-md-2, 
+.routes-list-items .col-md-3,
+.routes-list-items .col-md-4 {
+    border-top: solid 1px black;
+    padding: 0;
+    margin: 0;    
+}
+
+
 /* -GENERAL- */
 
 .relative-area {
@@ -173,6 +195,14 @@ footer h1 {
     background-color: #398f6b;    
     padding: 10px 0 10px 0;
     color: white;
+}
+
+.background-blue {
+    background-color: blue;
+}
+
+.background-green {
+    background-color: green;
 }
 
  /* FADE */

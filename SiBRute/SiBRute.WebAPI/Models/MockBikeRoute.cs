@@ -1,9 +1,16 @@
 ﻿using SiBRute.Model.Common;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace SiBRute.Model
+namespace SiBRute.WebAPI.Models
 {
-    public class BikeRoute : IBikeRoute
+    // TODO: Delete after database implementation
+    /// <summary>
+    /// Class used in a mocking the repository to preserve loosely coupled architecture
+    /// </summary>
+    public class MockBikeRoute : IBikeRoute
     {
         #region Properties
 
@@ -35,8 +42,9 @@ namespace SiBRute.Model
         /// <summary>
         /// Gets or sets the date of the route creation
         /// </summary>
-        public DateTime DateCreated { get; set; }    
+        public DateTime DateCreated { get; set; }   
 
-        #endregion Properties            
+        #endregion Properties
+       
     }
 }

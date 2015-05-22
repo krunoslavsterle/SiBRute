@@ -4,6 +4,8 @@ namespace SiBRute.Model.Common
 {
     public interface IBikeRoute
     {
+        #region Properties
+
         /// <summary>
         /// Gets or sets the name of the route
         /// </summary>
@@ -33,5 +35,7 @@ namespace SiBRute.Model.Common
         /// Gets or sets the date of the route creation
         /// </summary>
         DateTime DateCreated { get; set; }        
+
+        #endregion Properties        
     }
 }
