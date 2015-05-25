@@ -7,6 +7,11 @@ namespace SiBRute.Model.Common
         #region Properties
 
         /// <summary>
+        /// Gets or sets the indentifier
+        /// </summary>
+        int Id { get; set; }
+
+        /// <summary>
         /// Gets or sets the name of the route
         /// </summary>
         string Name { get; set; }

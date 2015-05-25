@@ -1,12 +1,10 @@
 ﻿using SiBRute.Model.Common;
 using System;
 
-namespace SiBRute.Model
+namespace SiBRute.DAL.Entities
 {
-    public class BikeRoute : IBikeRoute
+    public class BikeRouteEntity : IBikeRoute
     {
-        #region Properties
-
         /// <summary>
         /// Gets or sets the indentifier
         /// </summary>
@@ -40,9 +38,6 @@ namespace SiBRute.Model
         /// <summary>
         /// Gets or sets the date of the route creation
         /// </summary>
-        public DateTime DateCreated { get; set; }
-   
-
-        #endregion Properties            
+        public DateTime DateCreated { get; set; }    
     }
 }

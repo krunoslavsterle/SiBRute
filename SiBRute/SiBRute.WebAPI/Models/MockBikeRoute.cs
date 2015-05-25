@@ -15,6 +15,11 @@ namespace SiBRute.WebAPI.Models
         #region Properties
 
         /// <summary>
+        /// Gets or sets the indentifier
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Gets or sets the name of the route
         /// </summary>
         public string Name { get; set; }

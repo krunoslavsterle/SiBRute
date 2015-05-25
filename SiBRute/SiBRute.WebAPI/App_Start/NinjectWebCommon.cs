@@ -83,7 +83,9 @@ namespace SiBRute.WebAPI.App_Start
                 new MockBikeRoute {Name = "Slavonska ruta", Description = "Dulja kružna vožnja po Slavoniji, jedan jaèi uspon kod Aljmaša, vozi se uglavnom po cesti tako da treba paziti na promet.", Author = "krunosalv", Distance = 125, Places = "Osijek, Bijelo Brdo, Aljmaš, Erdut, Dalj, Borovo, Vukovar, Trpinja, Klisa.", DateCreated = DateTime.Now}
             });
 
-            kernel.Bind<IRoutesRepository>().ToConstant(mock.Object);
+            //kernel.Bind<IRoutesRepository>().ToConstant(mock.Object);
+
+           
         }        
     }
 }

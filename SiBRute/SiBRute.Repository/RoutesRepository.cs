@@ -1,18 +1,16 @@
-﻿using SiBRute.Repository.Common;
-using System;
+﻿using SiBRute.DAL;
+using SiBRute.Repository.Common;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SiBRute.Repository
 {
     public class RoutesRepository : IRoutesRepository
     {
-        // TODO: IMPLEMENT ROUTE REPOSITORY 
+        private RoutesDbContext context = new RoutesDbContext();        
+        
         public IEnumerable<Model.Common.IBikeRoute> GetAllRoutes()
-        {
-            throw new NotImplementedException();
+        {           
+            return context.Routes;           
         }
     }
 }
