@@ -1,4 +1,5 @@
 ﻿using SiBRute.Repository.Common;
+using SiBRute.Service.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace SiBRute.WebAPI.Controllers
         /// <summary>
         /// Gets the repository
         /// </summary>
-        protected IRoutesRepository repository { get; private set; }
+        protected IRoutesService routesService { get; private set; }
 
         #endregion Properties
 
@@ -24,9 +25,9 @@ namespace SiBRute.WebAPI.Controllers
         /// Gets the repository by DI and set it to the private propertie
         /// </summary>
         /// <param name="repository"></param>
-        public RoutesController(IRoutesRepository repository)
+        public RoutesController(IRoutesService routesService)
         {
-            this.repository = repository;
+            this.routesService = routesService;
         }
 
         #endregion Constructors
@@ -36,7 +37,9 @@ namespace SiBRute.WebAPI.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            return View(repository.GetAllRoutes());
+            return View(routesService.GetAllRoutes());
+            //return View(routesService.GetRoutesWithMaxDistance(75));
+            //return View(routesService.GetRoutesNearPlace("Bilje"));
         }
 
         #endregion Actions

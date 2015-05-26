@@ -7,7 +7,7 @@ namespace SiBRute.Service
     {
         public override void Load()
         {
-            Bind<ITestDI>().To<TestDI>();
+            Bind<IRoutesService>().To<RoutesService>();
         }
     }
 }

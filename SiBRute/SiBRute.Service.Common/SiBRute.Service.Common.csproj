@@ -39,8 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ITestDI.cs" />
+    <Compile Include="IRoutesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiBRute.Model.Common\SiBRute.Model.Common.csproj">
+      <Project>{ac8d023c-ee26-4860-9608-ec3deb5bafc6}</Project>
+      <Name>SiBRute.Model.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

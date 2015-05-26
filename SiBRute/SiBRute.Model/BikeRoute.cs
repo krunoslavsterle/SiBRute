@@ -40,8 +40,7 @@ namespace SiBRute.Model
         /// <summary>
         /// Gets or sets the date of the route creation
         /// </summary>
-        public DateTime DateCreated { get; set; }
-   
+        public DateTime DateCreated { get; set; }   
 
         #endregion Properties            
     }

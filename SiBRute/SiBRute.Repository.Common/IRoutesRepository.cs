@@ -10,5 +10,19 @@ namespace SiBRute.Repository.Common
         /// </summary>
         /// <returns></returns>
         IEnumerable<IBikeRoute> GetAllRoutes();
+
+        /// <summary>
+        /// Add or update route in repository
+        /// </summary>
+        /// <param name="route">The route object</param>
+        /// <returns></returns>
+        bool AddRoute(IBikeRoute route);
+
+        /// <summary>
+        /// Remove route from repositroy
+        /// </summary>
+        /// <param name="routeId">The route indentifier</param>
+        /// <returns></returns>
+        bool RemoveRoute(int routeId);
     }
 }
