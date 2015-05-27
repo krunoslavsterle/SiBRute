@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using SiBRute.DAL;
 
 namespace SiBRute.WebAPI
 {
@@ -16,6 +18,9 @@ namespace SiBRute.WebAPI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Without this there is an error ("Context has changed since the database was created") when trying to get data form the database            
+            Database.SetInitializer<RoutesDbContext>(null);
         }
     }
 }

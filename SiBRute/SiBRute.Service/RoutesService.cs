@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using SiBRute.Repository.Common;
+using SiBRute.Model.Common;
+using System;
 
 namespace SiBRute.Service
 {
@@ -33,8 +35,10 @@ namespace SiBRute.Service
         /// </summary>
         /// <param name="route">The route object</param>
         /// <returns></returns>
-        public bool AddRoute(Model.Common.IBikeRoute route)
+        public bool AddRoute(IBikeRoute route)
         {
+            route.Id = 0;
+            route.DateCreated = DateTime.Now;
             return repository.AddRoute(route);
         }
 
@@ -49,10 +53,20 @@ namespace SiBRute.Service
         }
 
         /// <summary>
+        /// Gets specific route by provided route identifier
+        /// </summary>
+        /// <param name="routeId"></param>
+        /// <returns></returns>
+        public IBikeRoute GetRoute(int routeId)
+        {
+            return repository.GetAllRoutes().FirstOrDefault(r => r.Id == routeId);
+        }
+
+        /// <summary>
         /// Gets all routes from repository
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Model.Common.IBikeRoute> GetAllRoutes()
+        public IEnumerable<IBikeRoute> GetAllRoutes()
         {
             return repository.GetAllRoutes();
         }
@@ -62,7 +76,7 @@ namespace SiBRute.Service
         /// </summary>
         /// <param name="maxDistance">Max distance of the route</param>
         /// <returns></returns>
-        public IEnumerable<Model.Common.IBikeRoute> GetRoutesWithMaxDistance(int maxDistance)
+        public IEnumerable<IBikeRoute> GetRoutesWithMaxDistance(int maxDistance)
         {            
             return repository.GetAllRoutes().Where(r => (r.Distance <= maxDistance));
         }
@@ -72,7 +86,7 @@ namespace SiBRute.Service
         /// </summary>
         /// <param name="place">Name of the place on the route</param>
         /// <returns></returns>
-        public IEnumerable<Model.Common.IBikeRoute> GetRoutesNearPlace(string place)
+        public IEnumerable<IBikeRoute> GetRoutesNearPlace(string place)
         {            
             return repository.GetAllRoutes().Where(r => r.Places.Contains(place));
         }

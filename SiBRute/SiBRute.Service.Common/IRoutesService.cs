@@ -23,6 +23,13 @@ namespace SiBRute.Service.Common
         bool RemoveRoute(int routeId);
 
         /// <summary>
+        /// Gets specific route by provided route identifier
+        /// </summary>
+        /// <param name="routeId"></param>
+        /// <returns></returns>
+        IBikeRoute GetRoute(int routeId);
+
+        /// <summary>
         /// Gets all routes from repository
         /// </summary>
         /// <returns></returns>

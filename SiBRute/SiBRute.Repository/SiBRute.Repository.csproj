@@ -63,6 +63,10 @@
       <Project>{ac8d023c-ee26-4860-9608-ec3deb5bafc6}</Project>
       <Name>SiBRute.Model.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SiBRute.Model\SiBRute.Model.csproj">
+      <Project>{5e3d3104-1d0c-46de-99f1-b378929989bd}</Project>
+      <Name>SiBRute.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SiBRute.Repository.Common\SiBRute.Repository.Common.csproj">
       <Project>{2361a9fb-36cb-4b26-aba4-182dc34e0920}</Project>
       <Name>SiBRute.Repository.Common</Name>

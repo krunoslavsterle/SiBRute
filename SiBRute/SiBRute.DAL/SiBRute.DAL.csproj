@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\BikeRouteEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoutesDbContext.cs" />
   </ItemGroup>
@@ -58,6 +57,10 @@
     <ProjectReference Include="..\SiBRute.Model.Common\SiBRute.Model.Common.csproj">
       <Project>{ac8d023c-ee26-4860-9608-ec3deb5bafc6}</Project>
       <Name>SiBRute.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SiBRute.Model\SiBRute.Model.csproj">
+      <Project>{5e3d3104-1d0c-46de-99f1-b378929989bd}</Project>
+      <Name>SiBRute.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

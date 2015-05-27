@@ -15,7 +15,8 @@ namespace SiBRute.WebAPI.App_Start
     using Moq;
     using SiBRute.Model.Common;
     using System.Collections.Generic;
-    using SiBRute.WebAPI.Models;
+    using SiBRute.Model;
+
 
     public static class NinjectWebCommon 
     {
@@ -78,9 +79,9 @@ namespace SiBRute.WebAPI.App_Start
             Mock<IRoutesRepository> mock = new Mock<IRoutesRepository>();
 
             mock.Setup(m => m.GetAllRoutes()).Returns(new List<IBikeRoute> {
-                new MockBikeRoute {Name = "Ruta po Baranji", Description = "Kratka ruta po Baranji, podloga je cesta, makadam i šumski put.", Author = "krunoslav", Distance = 75, Places = "Osijek, Bilje, Kopaèevo, Kopaèki rit, Tikveš", DateCreated = DateTime.Now},
-                new MockBikeRoute {Name = "Ruta do Valpova", Description = "Vožnja do valpova preko nasipa, podloga je makadam i cesta. Treba paziti na promet u Valpovu i blizini Osijeka.", Author = "krunoslav", Distance = 70, Places = "Osijek, Belišæe, Valpovo, Ladimirevci, Satnica, Petrijevci.", DateCreated = DateTime.Now},
-                new MockBikeRoute {Name = "Slavonska ruta", Description = "Dulja kružna vožnja po Slavoniji, jedan jaèi uspon kod Aljmaša, vozi se uglavnom po cesti tako da treba paziti na promet.", Author = "krunosalv", Distance = 125, Places = "Osijek, Bijelo Brdo, Aljmaš, Erdut, Dalj, Borovo, Vukovar, Trpinja, Klisa.", DateCreated = DateTime.Now}
+                new BikeRoute {Name = "Ruta po Baranji", Description = "Kratka ruta po Baranji, podloga je cesta, makadam i šumski put.", Author = "krunoslav", Distance = 75, Places = "Osijek, Bilje, Kopaèevo, Kopaèki rit, Tikveš", DateCreated = DateTime.Now},
+                new BikeRoute {Name = "Ruta do Valpova", Description = "Vožnja do valpova preko nasipa, podloga je makadam i cesta. Treba paziti na promet u Valpovu i blizini Osijeka.", Author = "krunoslav", Distance = 70, Places = "Osijek, Belišæe, Valpovo, Ladimirevci, Satnica, Petrijevci.", DateCreated = DateTime.Now},
+                new BikeRoute {Name = "Slavonska ruta", Description = "Dulja kružna vožnja po Slavoniji, jedan jaèi uspon kod Aljmaša, vozi se uglavnom po cesti tako da treba paziti na promet.", Author = "krunosalv", Distance = 125, Places = "Osijek, Bijelo Brdo, Aljmaš, Erdut, Dalj, Borovo, Vukovar, Trpinja, Klisa.", DateCreated = DateTime.Now}
             });
 
             //kernel.Bind<IRoutesRepository>().ToConstant(mock.Object);

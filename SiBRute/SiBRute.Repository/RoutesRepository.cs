@@ -1,5 +1,6 @@
 ﻿using SiBRute.DAL;
-using SiBRute.DAL.Entities;
+
+using SiBRute.Model;
 using SiBRute.Model.Common;
 using SiBRute.Repository.Common;
 using System.Collections.Generic;
@@ -48,12 +49,12 @@ namespace SiBRute.Repository
         public bool AddRoute(IBikeRoute route)
         {
             if (route.Id == 0)
-            {
-                context.Routes.Add(route as BikeRouteEntity);
+            {                
+                context.Routes.Add((BikeRoute)route);
             }
             else
             {
-                BikeRouteEntity dbEntry = context.Routes.Find(route);
+                BikeRoute dbEntry = context.Routes.Find(route);
 
                 if (dbEntry != null)
                 {
@@ -68,7 +69,6 @@ namespace SiBRute.Repository
 
             context.SaveChanges();
             return true;
-
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace SiBRute.Repository
         /// <returns></returns>
         public bool RemoveRoute (int routeId)
         {
-            BikeRouteEntity dbEntry = context.Routes.Find(routeId);
+            BikeRoute dbEntry = context.Routes.Find(routeId);
 
             if (dbEntry != null)
             {

@@ -1,10 +1,10 @@
-﻿using SiBRute.DAL.Entities;
+﻿using SiBRute.Model;
 using System.Data.Entity;
 
 namespace SiBRute.DAL
 {
     public class RoutesDbContext : DbContext
     {
-        public DbSet<BikeRouteEntity> Routes { get; set; }
+        public DbSet<BikeRoute> Routes { get; set; }       
     }
 }

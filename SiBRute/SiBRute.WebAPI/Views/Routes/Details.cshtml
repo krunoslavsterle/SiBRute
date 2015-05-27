@@ -1,0 +1,25 @@
+﻿@using SiBRute.Model.Common
+@model IBikeRoute
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="route-details">
+    <div class="col-md-5">
+        <div class="route-details-title">
+            <h1>@Model.Name</h1>
+        </div>        
+        <div class="route-details-description">
+            <p><u>datum:</u> @Model.DateCreated.ToShortDateString()</p>
+            <p><u>autor:</u> @Model.Author</p>
+            <p><u>duljina:</u> ~@Model.Distance km</p>
+            <p><u>mjesta:</u> @Model.Places</p>
+            <p class="route-details-description-margin"><u>opis:</u> @Model.Description</p>
+        </div>        
+    </div>
+
+    <div class="col-md-7">
+        <h1>This is map and photo album area</h1>
+    </div>
+</div>

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SiBRute.Model.Common;
+using SiBRute.Model;
 
 namespace SiBRute.WebAPI.Controllers
 {
@@ -36,10 +38,29 @@ namespace SiBRute.WebAPI.Controllers
 
         [HttpGet]
         public ActionResult List()
-        {
+        {            
             return View(routesService.GetAllRoutes());
             //return View(routesService.GetRoutesWithMaxDistance(75));
             //return View(routesService.GetRoutesNearPlace("Bilje"));
+        }
+
+        [HttpGet]
+        public ActionResult Details(int routeId)
+        {
+            return View(routesService.GetRoute(routeId));
+        }
+
+        [HttpGet]
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost] 
+        public RedirectToRouteResult New(BikeRoute route)
+        {            
+            routesService.AddRoute(route);
+            return RedirectToAction("List");
         }
 
         #endregion Actions

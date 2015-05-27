@@ -1,0 +1,47 @@
+﻿@using SiBRute.Model.Common
+@model IBikeRoute
+
+@{
+    ViewBag.Title = "New route";
+}
+
+<div class="route-details">
+    <div class="col-md-5">
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.Label("Naziv:")
+                @Html.EditorFor(r => r.Name)
+            </div>           
+
+            <div>
+                @Html.Label("Autor:")
+                @Html.EditorFor(r => r.Author)
+            </div>
+
+            <div>
+                @Html.Label("Duljina:")
+                @Html.EditorFor(r => r.Distance)
+            </div>
+
+            <div>
+                @Html.Label("Mjesta:")
+                @Html.EditorFor(r => r.Places)
+            </div>
+
+            <div>
+                @Html.Label("Opis:")
+                @Html.EditorFor(r => r.Description)
+            </div>
+            
+            <div>
+                <input type="submit" value="New" />
+            </div>
+
+        }
+    </div>
+
+    <div class="col-md-7">
+
+    </div>
+</div>

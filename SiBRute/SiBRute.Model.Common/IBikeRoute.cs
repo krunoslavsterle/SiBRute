@@ -34,7 +34,7 @@ namespace SiBRute.Model.Common
         /// <summary>
         /// Gets or sets the distance of the route
         /// </summary>
-        double Distance { get; set; }
+        int Distance { get; set; }
 
         /// <summary>
         /// Gets or sets the date of the route creation
