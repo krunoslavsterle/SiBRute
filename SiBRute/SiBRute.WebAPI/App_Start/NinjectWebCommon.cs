@@ -10,12 +10,16 @@ namespace SiBRute.WebAPI.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
-    using Ninject.Web.WebApi;
+    
     using SiBRute.Repository.Common;
     using Moq;
     using SiBRute.Model.Common;
     using System.Collections.Generic;
     using SiBRute.Model;
+    using Ninject.Web.WebApi;
+    using SiBRute.Service.Common;
+    using SiBRute.Service;
+ 
 
 
     public static class NinjectWebCommon 
@@ -47,15 +51,17 @@ namespace SiBRute.WebAPI.App_Start
         private static IKernel CreateKernel()
         {
             var settings = new NinjectSettings();
-            settings.LoadExtensions = true;
-            settings.ExtensionSearchPatterns = settings.ExtensionSearchPatterns.Union(new string[] { "SiBRute.*.dll" }).ToArray();
+            settings.LoadExtensions = false;
+           // settings.ExtensionSearchPatterns = settings.ExtensionSearchPatterns.Union(new string[] { "SiBRute.*.dll" }).ToArray();            
 
             var kernel = new StandardKernel(settings);
+
+           
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-
+                
                 RegisterServices(kernel);
 
                 GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
@@ -76,16 +82,16 @@ namespace SiBRute.WebAPI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             // Mocked repository for testing before the Database is created
-            Mock<IRoutesRepository> mock = new Mock<IRoutesRepository>();
+            //Mock<IRoutesService> mock = new Mock<IRoutesService>();
 
-            mock.Setup(m => m.GetAllRoutes()).Returns(new List<IBikeRoute> {
-                new BikeRoute {Name = "Ruta po Baranji", Description = "Kratka ruta po Baranji, podloga je cesta, makadam i šumski put.", Author = "krunoslav", Distance = 75, Places = "Osijek, Bilje, Kopaèevo, Kopaèki rit, Tikveš", DateCreated = DateTime.Now},
-                new BikeRoute {Name = "Ruta do Valpova", Description = "Vožnja do valpova preko nasipa, podloga je makadam i cesta. Treba paziti na promet u Valpovu i blizini Osijeka.", Author = "krunoslav", Distance = 70, Places = "Osijek, Belišæe, Valpovo, Ladimirevci, Satnica, Petrijevci.", DateCreated = DateTime.Now},
-                new BikeRoute {Name = "Slavonska ruta", Description = "Dulja kružna vožnja po Slavoniji, jedan jaèi uspon kod Aljmaša, vozi se uglavnom po cesti tako da treba paziti na promet.", Author = "krunosalv", Distance = 125, Places = "Osijek, Bijelo Brdo, Aljmaš, Erdut, Dalj, Borovo, Vukovar, Trpinja, Klisa.", DateCreated = DateTime.Now}
-            });
+            //mock.Setup(m => m.GetAllRoutes()).Returns(new List<IBikeRoute> {
+            //    new BikeRoute {Name = "Ruta po Baranji", Description = "Kratka ruta po Baranji, podloga je cesta, makadam i šumski put.", Author = "krunoslav", Distance = 75, Places = "Osijek, Bilje, Kopaèevo, Kopaèki rit, Tikveš", DateCreated = DateTime.Now},
+            //    new BikeRoute {Name = "Ruta do Valpova", Description = "Vožnja do valpova preko nasipa, podloga je makadam i cesta. Treba paziti na promet u Valpovu i blizini Osijeka.", Author = "krunoslav", Distance = 70, Places = "Osijek, Belišæe, Valpovo, Ladimirevci, Satnica, Petrijevci.", DateCreated = DateTime.Now},
+            //    new BikeRoute {Name = "Slavonska ruta", Description = "Dulja kružna vožnja po Slavoniji, jedan jaèi uspon kod Aljmaša, vozi se uglavnom po cesti tako da treba paziti na promet.", Author = "krunosalv", Distance = 125, Places = "Osijek, Bijelo Brdo, Aljmaš, Erdut, Dalj, Borovo, Vukovar, Trpinja, Klisa.", DateCreated = DateTime.Now}
+            //});
 
-            //kernel.Bind<IRoutesRepository>().ToConstant(mock.Object);
-
+            //kernel.Bind<IRoutesService>().ToConstant(mock.Object);          
+            kernel.Load(AppDomain.CurrentDomain.GetAssemblies());
            
         }        
     }

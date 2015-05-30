@@ -11,6 +11,8 @@
     <AssemblyName>SiBRute.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +36,7 @@
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,6 +54,10 @@
       <Project>{ac8d023c-ee26-4860-9608-ec3deb5bafc6}</Project>
       <Name>SiBRute.Model.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SiBRute.Model\SiBRute.Model.csproj">
+      <Project>{5e3d3104-1d0c-46de-99f1-b378929989bd}</Project>
+      <Name>SiBRute.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SiBRute.Repository.Common\SiBRute.Repository.Common.csproj">
       <Project>{2361a9fb-36cb-4b26-aba4-182dc34e0920}</Project>
       <Name>SiBRute.Repository.Common</Name>
@@ -61,6 +68,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -69,6 +77,13 @@
 copy "$(TargetDir)*.pdb" "$(SolutionDir)SiBRute.WebAPI\bin\"
 copy "$(TargetDir)*.xml" "$(SolutionDir)SiBRute.WebAPI\bin\"</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

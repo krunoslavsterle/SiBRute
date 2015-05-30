@@ -18,7 +18,7 @@ namespace SiBRute.WebAPI.Controllers
         /// Gets the repository
         /// </summary>
         protected IRoutesService routesService { get; private set; }
-
+        
         #endregion Properties
 
         #region Constructors
@@ -31,14 +31,14 @@ namespace SiBRute.WebAPI.Controllers
         {
             this.routesService = routesService;
         }
-
+       
         #endregion Constructors
 
         #region Actions
 
         [HttpGet]
         public ActionResult List()
-        {            
+        {
             return View(routesService.GetAllRoutes());
             //return View(routesService.GetRoutesWithMaxDistance(75));
             //return View(routesService.GetRoutesNearPlace("Bilje"));
