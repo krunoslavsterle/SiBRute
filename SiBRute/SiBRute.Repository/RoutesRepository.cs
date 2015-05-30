@@ -4,6 +4,10 @@ using SiBRute.Model;
 using SiBRute.Model.Common;
 using SiBRute.Repository.Common;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Linq.Expressions;
+using System;
 
 namespace SiBRute.Repository
 {
@@ -33,12 +37,31 @@ namespace SiBRute.Repository
         #region Methods
 
         /// <summary>
-        /// Gets all routes
+        /// Gets all the routes
         /// </summary>
         /// <returns></returns>
         public IEnumerable<IBikeRoute> GetAllRoutes()
         {           
             return context.Routes;           
+        }
+
+        /// <summary>
+        /// Gets all the routes asynchronously
+        /// </summary>
+        /// <returns></returns>
+        public Task<List<BikeRoute>> GetAllRoutesAsync()
+        {
+            return context.Set<BikeRoute>().ToListAsync(); 
+        }
+
+        /// <summary>
+        /// Finde the specific route
+        /// </summary>
+        /// <param name="match"></param>
+        /// <returns></returns>
+        public async Task<BikeRoute> FindAsync(int routeId)
+        {
+            return await context.Set<BikeRoute>().SingleOrDefaultAsync(b => b.Id == routeId);
         }
 
         /// <summary>
@@ -68,6 +91,36 @@ namespace SiBRute.Repository
             }
 
             context.SaveChanges();
+            return true;
+        }
+
+        /// <summary>
+        /// Add or update route in repository asynchronously
+        /// </summary>
+        /// <param name="route">The route object</param>
+        /// <returns></returns>
+        public async Task<bool> AddRouteAsync(BikeRoute route)
+        {
+            if (route.Id == 0)
+            {
+                context.Set<BikeRoute>().Add(route);
+            }
+            else
+            {
+                BikeRoute dbEntry = await context.Routes.FindAsync(route);
+
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = route.Name;
+                    dbEntry.Description = route.Description;
+                    dbEntry.Author = route.Author;
+                    dbEntry.DateCreated = route.DateCreated;
+                    dbEntry.Distance = route.Distance;
+                    dbEntry.Places = route.Places;
+                }
+            }
+
+            await context.SaveChangesAsync();
             return true;
         }
 

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using SiBRute.Model.Common;
 using SiBRute.Model;
+using System.Threading.Tasks;
 
 namespace SiBRute.WebAPI.Controllers
 {
@@ -37,30 +38,28 @@ namespace SiBRute.WebAPI.Controllers
         #region Actions
 
         [HttpGet]
-        public ActionResult List()
+        public async Task<ActionResult> ListAsync()
         {
-            return View(routesService.GetAllRoutes());
-            //return View(routesService.GetRoutesWithMaxDistance(75));
-            //return View(routesService.GetRoutesNearPlace("Bilje"));
+            return View("List", await routesService.GetAllRoutesAsync());     
         }
 
         [HttpGet]
-        public ActionResult Details(int routeId)
+        public async Task<ActionResult> DetailsAsync(int routeId)
         {
-            return View(routesService.GetRoute(routeId));
+            return View("Details", await routesService.GetRouteAsync(routeId));
         }
 
         [HttpGet]
-        public ActionResult New()
+        public ActionResult NewAsync()
         {
-            return View();
+            return View("New");
         }
 
         [HttpPost] 
-        public RedirectToRouteResult New(BikeRoute route)
+        public async Task<RedirectToRouteResult> NewAsync(BikeRoute route)
         {            
-            routesService.AddRoute(route);
-            return RedirectToAction("List");
+            await routesService.AddRouteAsync(route);
+            return RedirectToAction("ListAsync");
         }
 
         #endregion Actions

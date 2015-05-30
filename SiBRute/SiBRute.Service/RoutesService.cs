@@ -4,6 +4,8 @@ using System.Linq;
 using SiBRute.Repository.Common;
 using SiBRute.Model.Common;
 using System;
+using System.Threading.Tasks;
+using SiBRute.Model;
 
 namespace SiBRute.Service
 {
@@ -22,8 +24,7 @@ namespace SiBRute.Service
         /// </summary>
         /// <param name="repository"></param>
         public RoutesService(IRoutesRepository repository)
-        {
-            
+        {            
             this.repository = repository;
         }
 
@@ -39,10 +40,20 @@ namespace SiBRute.Service
         /// <param name="route">The route object</param>
         /// <returns></returns>
         public bool AddRoute(IBikeRoute route)
-        {
-            route.Id = 0;
+        {            
             route.DateCreated = DateTime.Now;
             return repository.AddRoute(route);
+        }
+
+        /// <summary>
+        /// Add or update route in repository asynchronously
+        /// </summary>
+        /// <param name="route">The route object</param>
+        /// <returns></returns>
+        public async Task<bool> AddRouteAsync(BikeRoute route)
+        {
+            route.DateCreated = DateTime.Now;
+            return await repository.AddRouteAsync(route);
         }
 
         /// <summary>
@@ -66,12 +77,31 @@ namespace SiBRute.Service
         }
 
         /// <summary>
-        /// Gets all routes from repository
+        /// Gets specific route by provided route identifier asynchronously
+        /// </summary>
+        /// <param name="routeId"></param>
+        /// <returns></returns>
+        public async Task<BikeRoute> GetRouteAsync(int routeId)
+        {
+            return await repository.FindAsync(routeId);
+        }
+
+        /// <summary>
+        /// Gets all the routes from repository
         /// </summary>
         /// <returns></returns>
         public IEnumerable<IBikeRoute> GetAllRoutes()
         {
             return repository.GetAllRoutes();
+        }
+
+        /// <summary>
+        /// Gets all the routes from repository asynchronously
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<BikeRoute>> GetAllRoutesAsync()
+        {
+            return await repository.GetAllRoutesAsync();
         }
 
         /// <summary>
