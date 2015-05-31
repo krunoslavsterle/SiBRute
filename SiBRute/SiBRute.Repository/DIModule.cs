@@ -11,8 +11,8 @@ namespace SiBRute.Repository
     public class DIModule : NinjectModule
     {
         public override void Load()
-        {
-            Bind<IRoutesRepository>().To<RoutesRepository>();
+        {  
+            Bind<IUnitOfWork>().To<UnitOfWork>();
         }
     }
 }

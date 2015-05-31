@@ -9,11 +9,11 @@ using SiBRute.Model;
 
 namespace SiBRute.Service
 {
-    public class RoutesService : IRoutesService
+    public class RoutesService : IRoutesService, IDisposable
     {
         #region Properties
-
-        protected IRoutesRepository repository { get; private set; }
+                
+        protected IUnitOfWork unitOfWork { get; set; }
 
         #endregion Properties
 
@@ -23,58 +23,38 @@ namespace SiBRute.Service
         /// Initialize a new instance of the <see cref="RoutesService"/> class.
         /// </summary>
         /// <param name="repository"></param>
-        public RoutesService(IRoutesRepository repository)
-        {            
-            this.repository = repository;
-        }
-
-       
+        public RoutesService(IUnitOfWork unitOfWork)
+        {     
+            this.unitOfWork = unitOfWork;
+        }       
 
         #endregion Constructors
 
         #region Methods
-
-        /// <summary>
-        /// Add or update route in repository
-        /// </summary>
-        /// <param name="route">The route object</param>
-        /// <returns></returns>
-        public bool AddRoute(IBikeRoute route)
-        {            
-            route.DateCreated = DateTime.Now;
-            return repository.AddRoute(route);
-        }
-
+                
         /// <summary>
         /// Add or update route in repository asynchronously
         /// </summary>
         /// <param name="route">The route object</param>
         /// <returns></returns>
-        public async Task<bool> AddRouteAsync(BikeRoute route)
+        public async Task<int> AddRouteAsync(BikeRoute route)
         {
-            route.DateCreated = DateTime.Now;
-            return await repository.AddRouteAsync(route);
+            route.DateCreated = DateTime.Now;            
+            await unitOfWork.AddAsync(route);
+            return await unitOfWork.CommitAsync();
         }
 
         /// <summary>
-        /// Remove route from repositroy
+        /// Remove route from repositroy asynchronously
         /// </summary>
         /// <param name="routeId">The route indentifier</param>
         /// <returns></returns>
-        public bool RemoveRoute(int routeId)
+        public async Task<int> RemoveRouteAsync(int routeId)
         {
-            return repository.RemoveRoute(routeId);
+            await unitOfWork.DeleteAsync<BikeRoute>(routeId);
+            return await unitOfWork.CommitAsync();
         }
-
-        /// <summary>
-        /// Gets specific route by provided route identifier
-        /// </summary>
-        /// <param name="routeId"></param>
-        /// <returns></returns>
-        public IBikeRoute GetRoute(int routeId)
-        {
-            return repository.GetAllRoutes().FirstOrDefault(r => r.Id == routeId);
-        }
+               
 
         /// <summary>
         /// Gets specific route by provided route identifier asynchronously
@@ -82,18 +62,10 @@ namespace SiBRute.Service
         /// <param name="routeId"></param>
         /// <returns></returns>
         public async Task<BikeRoute> GetRouteAsync(int routeId)
-        {
-            return await repository.FindAsync(routeId);
+        {            
+            return await unitOfWork.Get<BikeRoute>(r => r.Id == routeId);
         }
-
-        /// <summary>
-        /// Gets all the routes from repository
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<IBikeRoute> GetAllRoutes()
-        {
-            return repository.GetAllRoutes();
-        }
+               
 
         /// <summary>
         /// Gets all the routes from repository asynchronously
@@ -101,29 +73,55 @@ namespace SiBRute.Service
         /// <returns></returns>
         public async Task<List<BikeRoute>> GetAllRoutesAsync()
         {
-            return await repository.GetAllRoutesAsync();
+            return await unitOfWork.GetAllAsync<BikeRoute>();
         }
 
         /// <summary>
-        /// Gets all routes that dont have greater distance than param
+        /// Gets all routes that dont have greater distance than param asynchronously
         /// </summary>
         /// <param name="maxDistance">Max distance of the route</param>
         /// <returns></returns>
-        public IEnumerable<IBikeRoute> GetRoutesWithMaxDistance(int maxDistance)
-        {            
-            return repository.GetAllRoutes().Where(r => (r.Distance <= maxDistance));
+        public async Task<List<BikeRoute>> GetRoutesWithMaxDistanceAsync(int maxDistance)
+        {
+            return await unitOfWork.GetAllAsync<BikeRoute>(r => r.Distance < maxDistance);
         }
 
         /// <summary>
-        /// Gets all routes that are near designated place
+        /// Gets all routes that are near designated place asynchronously
         /// </summary>
         /// <param name="place">Name of the place on the route</param>
         /// <returns></returns>
-        public IEnumerable<IBikeRoute> GetRoutesNearPlace(string place)
-        {            
-            return repository.GetAllRoutes().Where(r => r.Places.Contains(place));
+        public async Task<List<BikeRoute>> GetRoutesNearPlaceAsync(string place)
+        {
+            return await unitOfWork.GetAllAsync<BikeRoute>(r => r.Places.Contains(place));
         }
 
         #endregion Methods
+
+        #region Dispose
+
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    unitOfWork.Dispose();
+                }
+            }
+
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion Dispose
+       
     }
 }

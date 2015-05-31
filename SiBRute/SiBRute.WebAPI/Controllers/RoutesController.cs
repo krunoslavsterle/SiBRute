@@ -41,6 +41,7 @@ namespace SiBRute.WebAPI.Controllers
         public async Task<ActionResult> ListAsync()
         {
             return View("List", await routesService.GetAllRoutesAsync());     
+            //return View("List", await routesService.GetRoutesWithMaxDistanceAsync(85));     
         }
 
         [HttpGet]
@@ -63,6 +64,11 @@ namespace SiBRute.WebAPI.Controllers
         }
 
         #endregion Actions
-        
+
+        protected override void Dispose(bool disposing)
+        {
+            routesService.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }
