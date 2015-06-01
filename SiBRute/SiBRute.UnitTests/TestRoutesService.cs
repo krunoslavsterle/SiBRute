@@ -28,7 +28,7 @@ namespace SiBRute.UnitTests
         public void Test_GetAllRoutesAsync()
         {
             // Arange  
-            Mock<IRoutesRepository> mock = new Mock<IRoutesRepository>();
+            Mock<IRouteRepository> mock = new Mock<IRouteRepository>();
 
             mock.Setup(m => m.GetAllAsync(null)).ReturnsAsync(Routes);
 

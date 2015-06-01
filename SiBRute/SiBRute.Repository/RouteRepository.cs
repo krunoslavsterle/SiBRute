@@ -10,7 +10,7 @@ using System;
 
 namespace SiBRute.Repository
 {
-    public class RoutesRepository : IRoutesRepository, IDisposable
+    public class RouteRepository : IRouteRepository, IDisposable
     {
         #region Properties
 
@@ -22,19 +22,19 @@ namespace SiBRute.Repository
         /// <summary>
         /// Gets and sets the unitOfWork
         /// </summary>
-        protected UnitOfWork unitOfWork { get; private set; }
+        protected IUnitOfWork unitOfWork { get; private set; }
 
         #endregion Properties
 
         #region Constructors
 
         /// <summary>
-        /// Initialize a new instance of the <see cref="RoutesRepository"/> class.
+        /// Initialize a new instance of the <see cref="RouteRepository"/> class.
         /// </summary>
-        public RoutesRepository()
+        public RouteRepository(IRoutesDbContext context, IUnitOfWork unitOfWork)
         {
-            context = new RoutesDbContext();
-            unitOfWork = new UnitOfWork(context);
+            this.context = context as RoutesDbContext;
+            this.unitOfWork = unitOfWork;
         }
 
         #endregion Constructors

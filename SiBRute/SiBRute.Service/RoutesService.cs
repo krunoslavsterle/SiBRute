@@ -13,7 +13,7 @@ namespace SiBRute.Service
     {
         #region Properties
                 
-        protected IRoutesRepository repository { get; set; }
+        protected IRouteRepository repository { get; set; }
 
         #endregion Properties
 
@@ -23,7 +23,7 @@ namespace SiBRute.Service
         /// Initialize a new instance of the <see cref="RoutesService"/> class.
         /// </summary>
         /// <param name="repository"></param>
-        public RoutesService(IRoutesRepository repository)
+        public RoutesService(IRouteRepository repository)
         {
             this.repository = repository;
         }       

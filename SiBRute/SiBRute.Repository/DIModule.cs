@@ -8,7 +8,7 @@ namespace SiBRute.Repository
         public override void Load()
         {  
             Bind<IUnitOfWork>().To<UnitOfWork>();
-            Bind<IRoutesRepository>().To<RoutesRepository>();
+            Bind<IRouteRepository>().To<RouteRepository>();
         }
     }
 }

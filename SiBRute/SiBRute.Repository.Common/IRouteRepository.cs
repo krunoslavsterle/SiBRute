@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SiBRute.Repository.Common
 {
-    public interface IRoutesRepository : IDisposable
+    public interface IRouteRepository : IDisposable
     {        
         /// <summary>
         /// Gets all the routes asynchronously

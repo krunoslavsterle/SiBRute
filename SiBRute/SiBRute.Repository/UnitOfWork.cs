@@ -17,9 +17,9 @@ namespace SiBRute.Repository
     {
         protected RoutesDbContext DbContext { get; set; }
 
-        public UnitOfWork(RoutesDbContext dbContext)
+        public UnitOfWork(IRoutesDbContext dbContext)
         {
-            DbContext = dbContext;
+            this.DbContext = dbContext as RoutesDbContext;
         }
 
         #region Methods
