@@ -49,21 +49,6 @@ namespace SiBRute.Repository.Common
         /// <param name="id"></param>
         /// <returns></returns>
         Task<int> DeleteAsync<T>(int id) where T : class;
-
-        /// <summary>
-        /// Get List of entities using predicate(default is null)
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        Task<List<T>> GetAllAsync<T>(Expression<Func<T, bool>> predicate = null) where T : class;
-
-        /// <summary>
-        /// Get one entity using predicate
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        Task<T> Get<T>(Expression<Func<T, bool>> predicate) where T : class;
+        
     }
 }

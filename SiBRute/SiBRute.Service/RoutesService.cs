@@ -13,7 +13,7 @@ namespace SiBRute.Service
     {
         #region Properties
                 
-        protected IUnitOfWork unitOfWork { get; set; }
+        protected IRoutesRepository repository { get; set; }
 
         #endregion Properties
 
@@ -23,9 +23,9 @@ namespace SiBRute.Service
         /// Initialize a new instance of the <see cref="RoutesService"/> class.
         /// </summary>
         /// <param name="repository"></param>
-        public RoutesService(IUnitOfWork unitOfWork)
-        {     
-            this.unitOfWork = unitOfWork;
+        public RoutesService(IRoutesRepository repository)
+        {
+            this.repository = repository;
         }       
 
         #endregion Constructors
@@ -39,9 +39,8 @@ namespace SiBRute.Service
         /// <returns></returns>
         public async Task<int> AddRouteAsync(BikeRoute route)
         {
-            route.DateCreated = DateTime.Now;            
-            await unitOfWork.AddAsync(route);
-            return await unitOfWork.CommitAsync();
+            route.DateCreated = DateTime.Now;
+            return await repository.AddRouteAsync(route);
         }
 
         /// <summary>
@@ -51,8 +50,7 @@ namespace SiBRute.Service
         /// <returns></returns>
         public async Task<int> RemoveRouteAsync(int routeId)
         {
-            await unitOfWork.DeleteAsync<BikeRoute>(routeId);
-            return await unitOfWork.CommitAsync();
+            return await repository.RemoveRouteAsync(routeId);            
         }
                
 
@@ -62,8 +60,8 @@ namespace SiBRute.Service
         /// <param name="routeId"></param>
         /// <returns></returns>
         public async Task<BikeRoute> GetRouteAsync(int routeId)
-        {            
-            return await unitOfWork.Get<BikeRoute>(r => r.Id == routeId);
+        {
+            return await repository.GetAsync(r => r.Id == routeId);
         }
                
 
@@ -73,7 +71,7 @@ namespace SiBRute.Service
         /// <returns></returns>
         public async Task<List<BikeRoute>> GetAllRoutesAsync()
         {
-            return await unitOfWork.GetAllAsync<BikeRoute>();
+            return await repository.GetAllAsync();
         }
 
         /// <summary>
@@ -83,7 +81,7 @@ namespace SiBRute.Service
         /// <returns></returns>
         public async Task<List<BikeRoute>> GetRoutesWithMaxDistanceAsync(int maxDistance)
         {
-            return await unitOfWork.GetAllAsync<BikeRoute>(r => r.Distance < maxDistance);
+            return await repository.GetAllAsync(r => r.Distance <= maxDistance);
         }
 
         /// <summary>
@@ -93,7 +91,7 @@ namespace SiBRute.Service
         /// <returns></returns>
         public async Task<List<BikeRoute>> GetRoutesNearPlaceAsync(string place)
         {
-            return await unitOfWork.GetAllAsync<BikeRoute>(r => r.Places.Contains(place));
+            return await repository.GetAllAsync(r => r.Places.Contains(place));
         }
 
         #endregion Methods
@@ -108,7 +106,7 @@ namespace SiBRute.Service
             {
                 if (disposing)
                 {
-                    unitOfWork.Dispose();
+                    repository.Dispose();
                 }
             }
 

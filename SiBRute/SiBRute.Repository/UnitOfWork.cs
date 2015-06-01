@@ -17,9 +17,9 @@ namespace SiBRute.Repository
     {
         protected RoutesDbContext DbContext { get; set; }
 
-        public UnitOfWork()
+        public UnitOfWork(RoutesDbContext dbContext)
         {
-            DbContext = new RoutesDbContext();
+            DbContext = dbContext;
         }
 
         #region Methods
@@ -154,40 +154,7 @@ namespace SiBRute.Repository
                 throw e;
             }
         }
-
-        /// <summary>
-        /// Get List of entities using predicate(default is null)
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public async Task<List<T>> GetAllAsync<T>(Expression<Func<T, bool>> predicate = null) where T : class
-        {
-            try
-            {
-                if (predicate != null)
-                {
-                    return await DbContext.Set<T>().Where(predicate).ToListAsync();
-                }
-
-                return await DbContext.Set<T>().ToListAsync();               
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }  
-     
-        /// <summary>
-        /// Get one entity using predicate
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public async Task<T> Get<T>(Expression<Func<T, bool>> predicate) where T : class
-        {
-            return await DbContext.Set<T>().FirstOrDefaultAsync(predicate);
-        }
+        
 
         public void Dispose()
         {
