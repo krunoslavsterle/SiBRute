@@ -2,17 +2,32 @@
 
 namespace SiBRute.WebAPI.Controllers
 {
-    public class HomeController : Controller
-    {
-        #region Actions
+   /// <summary>
+   /// todo: comment
+   /// </summary>
+   public class HomeController : Controller
+   {
+      #region Actions
 
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
+      [HttpGet]
+      public ActionResult Index()
+      {
+         return View();
+      }
 
-        #endregion Actions
-        
-    }
+      [HttpGet]
+      public ActionResult Login()
+      {
+         return View("Login");
+      }
+
+      [HttpGet]
+      public ActionResult UnderConstruction()
+      {
+         return View("UnderConstruction");
+      }
+
+      #endregion Actions
+
+   }
 }

@@ -11,64 +11,73 @@ using System.Threading.Tasks;
 
 namespace SiBRute.WebAPI.Controllers
 {
-    public class RoutesController : Controller
-    {
-        #region Properties
+   /// <summary>
+   /// todo: comment:
+   /// </summary>
+   public class RoutesController : Controller
+   {
+      #region Properties
 
-        /// <summary>
-        /// Gets the repository
-        /// </summary>
-        protected IRoutesService routesService { get; private set; }
-        
-        #endregion Properties
+      /// <summary>
+      /// Gets the repository
+      /// </summary>
+      protected IRoutesService routesService { get; private set; }
 
-        #region Constructors
+      #endregion Properties
 
-        /// <summary>
-        /// Gets the repository by DI and set it to the private propertie
-        /// </summary>
-        /// <param name="repository"></param>
-        public RoutesController(IRoutesService routesService)
-        {
-            this.routesService = routesService;
-        }
-       
-        #endregion Constructors
+      #region Constructors
 
-        #region Actions
+      /// <summary>
+      /// Gets the repository by DI and set it to the private propertie
+      /// </summary>
+      /// <param name="repository"></param>
+      public RoutesController(IRoutesService routesService)
+      {
+         this.routesService = routesService;
+      }
 
-        [HttpGet]
-        public async Task<ActionResult> ListAsync()
-        {
-            return View("List", await routesService.GetAllRoutesAsync());     
-            //return View("List", await routesService.GetRoutesWithMaxDistanceAsync(85));     
-        }
+      #endregion Constructors
 
-        [HttpGet]
-        public async Task<ActionResult> DetailsAsync(int routeId)
-        {
-            return View("Details", await routesService.GetRouteAsync(routeId));
-        }
+      #region Actions
 
-        [HttpGet]
-        public ActionResult NewAsync()
-        {
-            return View("New");
-        }
+      [HttpGet]
+      public async Task<ActionResult> ListAsync()
+      {
+         return View("List", await routesService.GetAllRoutesAsync());
+         //return View("List", await routesService.GetRoutesWithMaxDistanceAsync(85));     
+      }
 
-        [HttpPost] 
-        public async Task<RedirectToRouteResult> NewAsync(BikeRoute route)
-        {            
-            await routesService.AddRouteAsync(route);
-            return RedirectToAction("ListAsync");
-        }
+      [HttpGet]
+      public async Task<ActionResult> DetailsAsync(int routeId)
+      {
+         return View("Details", await routesService.GetRouteAsync(routeId));
+      }
 
-        #endregion Actions
+      [HttpGet]
+      public ActionResult NewAsync()
+      {
+         return View("New");
+      }
 
-        protected override void Dispose(bool disposing)
-        {
-            routesService.Dispose();
-            base.Dispose(disposing);
-        }
-    }
+      [HttpPost]
+      public async Task<RedirectToRouteResult> NewAsync(BikeRoute route)
+      {
+         await routesService.AddRouteAsync(route);
+         return RedirectToAction("ListAsync");
+      }
+
+      [HttpGet]
+      public ActionResult Planer()
+      {
+         return View("Planer");
+      }
+
+      #endregion Actions
+
+      protected override void Dispose(bool disposing)
+      {
+         routesService.Dispose();
+         base.Dispose(disposing);
+      }
+   }
 }

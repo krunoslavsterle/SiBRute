@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiBRute.WebAPI", "SiBRute.WebAPI\SiBRute.WebAPI.csproj", "{DF126E94-903E-4BD8-9C9D-799EAF70C690}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiBRute.WebUI", "SiBRute.WebAPI\SiBRute.WebUI.csproj", "{DF126E94-903E-4BD8-9C9D-799EAF70C690}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiBRute.UnitTests", "SiBRute.UnitTests\SiBRute.UnitTests.csproj", "{C61CA56B-B7A6-444B-BED9-589B2B8DFE72}"
 EndProject

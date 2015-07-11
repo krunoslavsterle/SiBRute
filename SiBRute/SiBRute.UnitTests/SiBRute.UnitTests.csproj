@@ -121,9 +121,9 @@
       <Project>{60191418-b4db-4368-b05c-3355469fbd84}</Project>
       <Name>SiBRute.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SiBRute.WebAPI\SiBRute.WebAPI.csproj">
+    <ProjectReference Include="..\SiBRute.WebAPI\SiBRute.WebUI.csproj">
       <Project>{df126e94-903e-4bd8-9c9d-799eaf70c690}</Project>
-      <Name>SiBRute.WebAPI</Name>
+      <Name>SiBRute.WebUI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

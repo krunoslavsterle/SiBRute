@@ -3,60 +3,54 @@
 
 
 @{
-    ViewBag.Title = "Popis ruta";
+   ViewBag.Title = "Popis ruta";
 }
 
-<div class="routes-list text-center">
-    <div class="routes-list-header">
-        <div class="col-md-1">
-            <h4>DULJINA</h4>
-        </div>
+<div class="container">
 
-        <div class="col-md-3">
-            <h4>NAZIV</h4>
-        </div>
+   <div>
 
-        <div class="col-md-4">
-            <h4>MJESTA</h4>
-        </div>
+      <table class="table">
+         <thead>
+            <tr>
+               <th>DULJINA</th>
+               <th>NAZIV</th>
+               <th>MJESTA</th>
+               <th>DATUM</th>
+               <th>AUTOR</th>
+            </tr>
+         </thead>
+         <tbody>
+            @{
+               int i = 0;
 
-        <div class="col-md-2">
-            <h4>DATUM</h4>
-        </div>
+               foreach (var route in Model)
+               {
+                  if (i % 2 == 0)
+                  {
+                     <tr class="table-row" onclick="location.href = '@(Url.Action("DetailsAsync", "Routes", new {routeId=route.Id}))'">
+                        <td>@route.Distance km</td>
+                        <td>@route.Name</td>
+                        <td>@route.Places</td>
+                        <td>@route.DateCreated.ToShortDateString()</td>
+                        <td>@route.Author</td>
+                     </tr>
+                  }
+                  else
+                  {
+                     <tr class="table-row background-dark" onclick="location.href = '@(Url.Action("DetailsAsync", "Routes", new {routeId=route.Id}))'">
+                        <td>@route.Distance km</td>
+                        <td>@route.Name</td>
+                        <td>@route.Places</td>
+                        <td>@route.DateCreated.ToShortDateString()</td>
+                        <td>@route.Author</td>
+                     </tr>
+                  }
+                  i++;
+               }
+}
 
-        <div class="col-md-2">
-            <h4>AUTOR</h4>
-        </div>
-    </div>
-
-    <div class="routes-list-items">
-        @foreach (var route in Model)
-        {
-            <a href="@Url.Action("DetailsAsync", "Routes", new {routeId=route.Id} )">
-                <div class="col-md-1">
-                    <h4>~@route.Distance km</h4>
-                </div>
-
-                <div class="col-md-3">
-                    <h4>@route.Name</h4>
-                </div>
-
-                <div class="col-md-4 text-left">
-                    <p>@route.Places</p>
-                </div>
-
-                <div class="col-md-2">
-                    <h4>@route.DateCreated.ToShortDateString()</h4>
-                </div>
-
-                <div class="col-md-2">
-                    <h4>@route.Author</h4>
-                </div>
-            </a>
-
-        }
-    </div>
+         </tbody>
+      </table>
+   </div>
 </div>
-
-
-

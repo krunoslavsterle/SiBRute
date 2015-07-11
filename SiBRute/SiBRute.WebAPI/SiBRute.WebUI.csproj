@@ -150,6 +150,7 @@
     <Content Include="Content\Images\index4.jpg" />
     <Content Include="Content\Images\index5.jpg" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\under-constructino.jpg" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -194,6 +195,9 @@
     <Content Include="Views\Routes\List.cshtml" />
     <Content Include="Views\Routes\Details.cshtml" />
     <Content Include="Views\Routes\New.cshtml" />
+    <Content Include="Views\Routes\Planer.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\UnderConstruction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
