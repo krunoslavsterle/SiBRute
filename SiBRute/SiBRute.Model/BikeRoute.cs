@@ -1,6 +1,7 @@
 ﻿using SiBRute.Model.Common;
 using System;
 
+
 namespace SiBRute.Model
 {
     public class BikeRoute : IBikeRoute
@@ -19,7 +20,7 @@ namespace SiBRute.Model
 
         /// <summary>
         /// Gets or sets the description
-        /// </summary>
+        /// </summary>        
         public string Description { get; set; }
 
         /// <summary>

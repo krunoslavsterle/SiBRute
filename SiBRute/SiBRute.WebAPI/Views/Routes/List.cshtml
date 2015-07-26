@@ -28,7 +28,7 @@
                {
                   if (i % 2 == 0)
                   {
-                     <tr class="table-row" onclick="location.href = '@(Url.Action("DetailsAsync", "Routes", new {routeId=route.Id}))'">
+                     <tr  class="table-row" onclick="location.href = '@(Url.Action("DetailsAsync", "Routes", new {routeId=route.Id}))'">
                         <td>@route.Distance km</td>
                         <td>@route.Name</td>
                         <td>@route.Places</td>

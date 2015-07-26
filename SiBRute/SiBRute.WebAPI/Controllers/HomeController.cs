@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿
+using System.Web.Mvc;
 
 namespace SiBRute.WebAPI.Controllers
 {
@@ -20,7 +21,7 @@ namespace SiBRute.WebAPI.Controllers
       {
          return View("Login");
       }
-
+     
       [HttpGet]
       public ActionResult UnderConstruction()
       {

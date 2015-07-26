@@ -6,42 +6,33 @@
 }
 
 <div class="route-details">
-    <div class="col-md-5">
-        @using (Html.BeginForm())
-        {
-            <div>
-                @Html.Label("Naziv:")
-                @Html.EditorFor(r => r.Name)
-            </div>           
+   <div class="col-md-5">
+      <div class="route-details-title">         
+         @Html.TextBoxFor(r => r.Name, new { @class="route-details-title", placeholder = "Naziv" })
+      </div>
+      <div class="route-details-input">
+         <div>          
+            @Html.TextBoxFor(r => r.Author, new { @class="route-details-content", placeholder = "Autor" })
+         </div>
+         <div>           
+            @Html.TextBoxFor(r => r.Distance, new { @class = "route-details-content-length", placeholder = "Duljina" })
+         </div>
+         <div>    
+            @Html.TextBoxFor(r => r.Places, new { @class = "route-details-content-places", placeholder = "Mjesta" })
+         </div>
+         
+         <div>           
+            @Html.TextAreaFor(r => r.Description, new { @class = "route-details-content-description", placeholder = "Opis" })
+         </div>
+         <div>
+            <input type="submit" value="New" />
+         </div>
+      </div>
+   </div>
 
-            <div>
-                @Html.Label("Autor:")
-                @Html.EditorFor(r => r.Author)
-            </div>
-
-            <div>
-                @Html.Label("Duljina:")
-                @Html.EditorFor(r => r.Distance)
-            </div>
-
-            <div>
-                @Html.Label("Mjesta:")
-                @Html.EditorFor(r => r.Places)
-            </div>
-
-            <div>
-                @Html.Label("Opis:")
-                @Html.EditorFor(r => r.Description)
-            </div>
-            
-            <div>
-                <input type="submit" value="New" />
-            </div>
-
-        }
-    </div>
-
-    <div class="col-md-7">
-
-    </div>
+   <div class="col-md-7">
+      <h1>This is map and photo album area</h1>
+   </div>
 </div>
+
+

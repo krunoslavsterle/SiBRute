@@ -43,8 +43,8 @@ html {
 }
 
 .table tbody tr:hover {
-   background-color: rgba(0,0,0,0.2);
-   cursor: pointer;
+   /*background-color: rgba(0,0,0,0.2);*/
+   cursor: pointer;   
 }
 
 
@@ -218,10 +218,47 @@ footer h1 {
     margin-top: 20px;    
 }
 
-.route-details-title h1{
-    text-decoration: underline;
+.route-details-title {    
     font-size: 25px;
     font-weight: 700;
+    margin-bottom: 20px;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.route-details-content {
+   font-size: 15px;
+   font-weight: 600;
+   margin-bottom: 10px;
+   max-width: 400px;
+}
+
+.route-details-content-length {
+   font-size: 15px;
+   font-weight: 600;
+   margin-bottom: 10px;
+   max-width: 60px;
+   min-width: 60px;
+}
+
+.route-details-content-places {
+   font-size: 15px;
+   font-weight: 600;
+   margin-bottom: 10px;
+   max-width: 400px;
+   min-width: 400px;
+}
+
+.route-details-content-description {
+   margin-top: 20px;
+   font-size: 15px;
+   font-weight: 600;
+   margin-bottom: 10px;
+   max-width: 400px;
+   max-height: 150px;
+   min-width: 400px;
+   min-height: 150px;
 }
 
 .route-details-description {
@@ -236,6 +273,10 @@ footer h1 {
 
 .route-details-description-margin {
     margin-top: 30px;
+}
+
+route-details-input {
+
 }
 
 
