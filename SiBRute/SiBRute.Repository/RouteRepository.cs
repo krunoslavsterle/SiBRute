@@ -10,6 +10,9 @@ using System;
 
 namespace SiBRute.Repository
 {
+   /// <summary>
+   /// Route repository.
+   /// </summary>
     public class RouteRepository : IRouteRepository, IDisposable
     {
         #region Properties
@@ -20,7 +23,7 @@ namespace SiBRute.Repository
         protected RoutesDbContext context { get; private set; }
 
         /// <summary>
-        /// Gets and sets the unitOfWork
+        /// Gets and sets the unitOfWork.
         /// </summary>
         protected IUnitOfWork unitOfWork { get; private set; }
 
@@ -42,7 +45,7 @@ namespace SiBRute.Repository
         #region Methods
         
         /// <summary>
-        /// Get List of routes asynchronously using predicate(default is null)
+        /// Get List of routes asynchronously using predicate(default is null).
         /// </summary>
         /// <returns></returns>
         public async Task<List<BikeRoute>> GetAllAsync(Expression<Func<BikeRoute, bool>> predicate = null)
@@ -56,7 +59,7 @@ namespace SiBRute.Repository
         }
 
         /// <summary>
-        /// Get one route asynchronously using predicate 
+        /// Get one route asynchronously using predicate. 
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
@@ -66,10 +69,10 @@ namespace SiBRute.Repository
         }
         
         /// <summary>
-        /// Add or update route in repository asynchronously
+        /// Add or update route in repository asynchronously.
         /// </summary>
-        /// <param name="route">The route object</param>
-        /// <returns></returns>
+        /// <param name="route">The route object.</param>
+        /// <returns>Update route in repository asynchronously.</returns>
         public async Task<int> AddRouteAsync(BikeRoute route)
         {
             await unitOfWork.AddAsync(route);
@@ -77,10 +80,10 @@ namespace SiBRute.Repository
         }
 
         /// <summary>
-        /// Update the route in repository asynchronously
+        /// Update the route in repository asynchronously.
         /// </summary>
-        /// <param name="route"></param>
-        /// <returns></returns>
+        /// <param name="route">Route entity.</param>
+        /// <returns>The route in repository asynchronously.</returns>
         public async Task<int> UpdateRouteAsync(BikeRoute route)
         {
             await unitOfWork.UpdateAsync(route);
@@ -88,9 +91,9 @@ namespace SiBRute.Repository
         }
 
         /// <summary>
-        /// Remove route from repositroy asynchronously
+        /// Remove route from repositroy asynchronously.
         /// </summary>
-        /// <param name="routeId">The route indentifier</param>
+        /// <param name="routeId">The route id.</param>
         /// <returns></returns>
         public async Task<int> RemoveRouteAsync(int routeId)
         {

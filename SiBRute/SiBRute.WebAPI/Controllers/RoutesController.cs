@@ -19,7 +19,7 @@ namespace SiBRute.WebAPI.Controllers
       #region Properties
 
       /// <summary>
-      /// Gets the repository
+      /// Gets the repository.
       /// </summary>
       protected IRoutesService routesService { get; private set; }
 
@@ -69,7 +69,7 @@ namespace SiBRute.WebAPI.Controllers
       [HttpGet]
       public ActionResult Planer()
       {
-         return View("Planer");
+         return View("Planer");         
       }
 
       #endregion Actions
