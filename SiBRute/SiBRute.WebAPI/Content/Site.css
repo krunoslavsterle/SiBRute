@@ -13,6 +13,7 @@ html {
     margin: 0 auto;
     padding: 0;
     position: relative;
+    width: 1400px;
 }
 
 .under-construction {
@@ -439,18 +440,18 @@ route-details-input {
 }
 
 @media screen and (min-width: 480px) and (max-width: 992px) {
-     body {       
+    body {
         margin-bottom: 95px;
     }
 
     #nav-logo {
-        margin: 4px 0 4px 30px;          
+        margin: 4px 0 4px 30px;
     }
 
-    #nav-logo img {
-        width: 200px;  
-        height: 100%;
-    }
+        #nav-logo img {
+            width: 200px;
+            height: 100%;
+        }
 
     .navbar-nav li a {
         line-height: 10px;
@@ -462,27 +463,26 @@ route-details-input {
         padding-left: 0px;
     }
 
-     footer {       
-        height: 95px;       
-        padding: 10px 0; 
-       
+    footer {
+        height: 95px;
+        padding: 10px 0;
     }
 
     .nav-footer a {
-        font-size: 8px;   
-        margin: 0 5px 0 5px;        
+        font-size: 8px;
+        margin: 0 5px 0 5px;
     }
 
     footer h1 {
-        font-size: 25px;        
+        font-size: 25px;
     }
 
     footer p {
         font-size: 7px;
     }
 
-    .nav-footer {        
-        padding: 0 0 10px 0;     
+    .nav-footer {
+        padding: 0 0 10px 0;
     }
 
 
@@ -522,23 +522,24 @@ route-details-input {
         font-size: 15px;
         left: 50%;
         transform: translate(-50%, 10%);
-        position: absolute; 
+        position: absolute;
         bottom: 15px;
         width: 120px;
         padding: 8px 0 8px 0;
     }
+
     .quotes-area {
-        padding: 20px 0;       
+        padding: 20px 0;
     }
 
-    .quotes-area h1 {
-        font-size: 16px;
-    }
+        .quotes-area h1 {
+            font-size: 16px;
+        }
 
-    .quotes-area p {
-        padding-top: 6px;
-        font-size: 10px;
-    }
+        .quotes-area p {
+            padding-top: 6px;
+            font-size: 10px;
+        }
 }
 
 @media screen and (min-width: 768px) {

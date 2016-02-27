@@ -17,6 +17,7 @@ namespace SiBRute.WebAPI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // Without this there is an error ("Context has changed since the database was created") when trying to get data form the database            

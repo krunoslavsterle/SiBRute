@@ -6,6 +6,7 @@ namespace SiBRute.WebAPI.Controllers
    /// <summary>
    /// todo: comment
    /// </summary>
+   [AllowAnonymous]
    public class HomeController : Controller
    {
       #region Actions
